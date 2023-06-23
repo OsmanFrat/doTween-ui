@@ -1,2 +1,2 @@
-# doTween-UI-practice
-DoTween UI Test
+# doTween-practice
+DoTween  Test
