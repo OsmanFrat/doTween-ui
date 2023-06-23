@@ -13,14 +13,25 @@ public class DoTweenUI : MonoBehaviour
     public RectTransform[] downYTransforms;
     public Text scoreText;
     public Vector3 originalScale;
-
-    private void Start() {
+    private GamePanelsScript gamePanelsScript;
+    
+    private void Start() 
+    {
         originalScale = transform.localScale;
     }
 
     //Every time this object is activated, the functions inside it run again.
     void OnEnable()
     {
+        lvlCompletePanel();
+    }
+
+
+
+    public void lvlCompletePanel()
+    {
+        
+        // gamePanelsScript.isGameActive = false;
         foreach(RectTransform scaleTransform in scaleTransforms)
         {
             scaleTransform.DOScale(Vector3.zero, revealDuration).From();
@@ -42,6 +53,7 @@ public class DoTweenUI : MonoBehaviour
         //.SetDelay(revealDuration); when animation will be active(i guess xd)
 
         scoreText.DOText("464500", revealDuration/2f).SetDelay(revealDuration);
+        
     }
 
     public void OnClickTween(RectTransform rectTransform)
@@ -50,7 +62,6 @@ public class DoTweenUI : MonoBehaviour
         //                    1.25 times magnification when button is pressed  and  do this 2 times
         rectTransform.DOScale(originalScale, revealDuration);
     }
-
 
 }
 //730
